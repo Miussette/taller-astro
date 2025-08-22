@@ -1,0 +1,174 @@
+---
+import '../styles/proyectos.css';
+
+
+const projects = [
+  {
+    emoji: '🐶',
+    title: 'ReskU',
+    type: 'Hackathon',
+    description: 'App de adopción de animales con chatbot, filtros y seguimiento de solicitudes.',
+    tags: ['React Native', 'TypeScript', 'Firebase'],
+    links: {
+      repo: 'https://github.com/Miussette/resku', // ← actualiza si es otro
+      demo: '' // opcional
+    }
+  },
+  {
+    emoji: '🌱',
+    title: 'Bloom',
+    type: 'Proyecto propio',
+    description: 'App de salud mental con mood tracker, medicamentos y recordatorios.',
+    tags: ['Astro', 'TailwindCSS', 'TypeScript'],
+    links: {
+      repo: 'https://github.com/Miussette/bloom', // ← actualiza
+      demo: '' // opcional
+    }
+  },
+  {
+    emoji: '🧠',
+    title: 'BreezaAI',
+    type: 'Hackathon',
+    description: 'Compañero de bienestar con micro-lecciones, respiración y planes semanales.',
+    tags: ['React', 'Node', 'RAG'],
+    links: {
+      repo: 'https://github.com/Miussette/breezaai', // ← actualiza
+      demo: 'https://breezaai.vercel.app' // opcional
+    }
+  },
+  {
+    emoji: '🤖',
+    title: 'Kora',
+    type: 'Hackathon',
+    description: 'Asistente de respuesta a desastres con modelos OSS e indexación de protocolos.',
+    tags: ['Next.js', 'TypeScript', 'Ollama'],
+    links: {
+      repo: 'https://github.com/Miussette/kora', // ← actualiza
+      demo: 'https://kora.vercel.app' // opcional
+    }
+  },
+  {
+    emoji: '🛒',
+    title: 'greenelectronics.cl',
+    type: 'Freelance',
+    description: 'E‑commerce de electrónica con panel admin y conexión a proveedores.',
+    tags: ['Next.js', 'MongoDB', 'API Routes'],
+    links: {
+      repo: 'https://github.com/Miussette/greenelectronics', // ← actualiza
+      demo: 'https://greenelectronics.vercel.app' // opcional
+    }
+  },
+  {
+    emoji: '📅',
+    title: 'Agenda Peluquería',
+    type: 'Freelance',
+    description: 'Agendamiento online con notificaciones y sincronización con Google Calendar.',
+    tags: ['React', 'Node', 'Google Calendar API'],
+    links: {
+      repo: 'https://github.com/Miussette/agenda-peluqueria', // ← actualiza
+      demo: 'https://agenda-peluqueria.vercel.app' // opcional
+    }
+  },
+  {
+    emoji: '🛰️',
+    title: 'SentIA',
+    type: 'Proyecto propio',
+    description: 'App de bienestar y seguimiento emocional (web) con flujos guiados.',
+    tags: ['React Native Web', 'TypeScript'],
+    links: {
+      repo: 'https://github.com/Miussette/sentia', // ← actualiza
+      demo: 'https://sentia.vercel.app' // opcional
+    }
+  },
+  {
+    emoji: '🖥️',
+    title: 'Star Wars Fans',
+    type: 'Académico',
+    description: 'Sitio fan responsive con 5 páginas, SEO básico y galería externa.',
+    tags: ['HTML', 'CSS', 'Vanilla JS'],
+    links: {
+      repo: 'https://github.com/Miussette/star-wars-fans', // ← actualiza
+      demo: 'https://sw-proyecto2.vercel.app' // si ya está publicado
+    }
+  },
+  {
+    emoji: '🏢',
+    title: 'easyWork',
+    type: 'Proyecto propio',
+    description: 'Reserva de puestos con mapa en tiempo real, notificaciones y validación por QR.',
+    tags: ['React', 'TailwindCSS', 'Supabase'],
+    links: {
+      repo: 'https://github.com/Miussette/easywork', // ← actualiza
+      demo: 'https://easywork.vercel.app' // opcional
+    }
+  },
+];
+
+// Utilidad: ¿tiene al menos un link?
+const hasLinks = (links) => Boolean(links?.repo || links?.demo);
+---
+
+<section class="proyectos-destacados" id="proyectos">
+  <h2 class="titulo">Proyectos Destacados</h2>
+
+  <div class="grid-proyectos">
+    {projects.map((p) => (
+      <article class="proyecto-card" data-type={p.type}>
+        <header class="proyecto-header">
+          <h3 class="proyecto-titulo">
+            {p.emoji} <strong>{p.title}</strong>
+          </h3>
+          <span class="badge" aria-label={`Tipo: ${p.type}`}>{p.type}</span>
+        </header>
+
+        <p class="proyecto-desc">{p.description}</p>
+
+        <ul class="tags" aria-label="Tecnologías">
+          {p.tags.map((t) => <li class="tag">{t}</li>)}
+        </ul>
+
+        {hasLinks(p.links) && (
+          <div class="proyecto-links">
+            {p.links.repo && (
+              <a
+                class="btn-link"
+                href={p.links.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Repositorio de ${p.title} en GitHub`}
+              >
+                <img src="/icons/github.svg" alt="" /> Repo
+              </a>
+            )}
+            {p.links.demo && (
+              <a
+                class="btn-link"
+                href={p.links.demo}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Demo en vivo de ${p.title}`}
+              >
+                <img src="/icons/external.svg" alt="" /> Demo
+              </a>
+            )}
+          </div>
+        )}
+      </article>
+    ))}
+  </div>
+</section>
+
+<footer class="footer-contacto">
+  <a href="https://github.com/Miussette" target="_blank" rel="noopener noreferrer">
+    <img src="/icons/github.svg" alt="GitHub" />
+    GitHub
+  </a>
+  <a href="https://linkedin.com/in/miu-alfaro" target="_blank" rel="noopener noreferrer">
+    <img src="/icons/linkedin.svg" alt="LinkedIn" />
+    LinkedIn
+  </a>
+  <a href="mailto:miualfaro.contacto@gmail.com">
+    <img src="/icons/mail.svg" alt="Correo" />
+    Correo
+  </a>
+</footer>

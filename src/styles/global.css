@@ -1,0 +1,97 @@
+/* src/styles/global.css */
+
+:root {
+  --color-principal: #1f4e5f;
+  --color-secundario: #ff6f61;
+  --color-fondo: #ddc3e3;
+  --color-texto: #0c0c0c;
+   --fuente-base: 'Poppins', sans-serif;
+
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+}
+
+
+a {
+  color: var(--color-secundario);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3 {
+  color: var(--color-principal);
+  margin: 0 0 1rem;
+}
+
+p {
+  line-height: 1.6;
+}
+
+.logo {
+  max-width: 350px;
+  margin: 0 auto 2rem;
+  display: block;
+}
+.presentacion {
+  background-color: #9333ea; /* morado bonito */
+  color: white;
+  padding: 4rem 1.5rem;
+}
+
+.contenido {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  flex-wrap: wrap; /* importante para mobile */
+}
+
+.foto-perfil {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+}
+
+.texto {
+  max-width: 600px;
+}
+
+.nombre {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.rol {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.descripcion {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+@media (max-width: 640px) {
+  .contenido {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .foto-perfil {
+    margin-bottom: 1.5rem;
+  }
+}
